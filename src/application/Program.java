@@ -19,13 +19,17 @@ public class Program {
 
         System.out.print("Enter department's name: ");
         String departmentName = scanner.nextLine();
+
         System.out.println("Enter worker data: ");
         System.out.print("Name: ");
         String workerName = scanner.nextLine();
+
         System.out.println("Level: ");
         String workerLevel = scanner.nextLine();
+
         System.out.println("Base salary: ");
         double baseSalary = scanner.nextDouble();
+
         Worker worker = new Worker(workerName, WorkerLevel.valueOf(workerLevel), baseSalary, new Department(departmentName));
 
         System.out.print("How many contracts to this worker? ");
@@ -35,16 +39,21 @@ public class Program {
             System.out.println("Enter contract #" + i + " data :");
             System.out.print("Date (DD/MM/YYYY): ");
             Date contractDate = sdf.parse(scanner.next());
+
             System.out.println("Value per hour: ");
             double valuePerHour = scanner.nextDouble();
+
             System.out.println("Duration (hours): ");
             int hours = scanner.nextInt();
+
             HourContract contract = new HourContract(contractDate, valuePerHour, hours);
             worker.addContract(contract);
         }
         System.out.println();
         System.out.print("Enter month and year to calculate income (MM/YYYY): ");
+
         String monthAndYear = scanner.next();
+
         int month = Integer.parseInt(monthAndYear.substring(0, 2));
         int year = Integer.parseInt(monthAndYear.substring(3));
 
